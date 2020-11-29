@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xl-12 col-lg-12 mt-5">
+            <div class="mt-5">            
+                <div class="form-group d-flex">
+                    <input type="text"
+                     class="form-control"
+                     [(ngModel)]="searchValue"
+                     placeholder="введите номер пользователя" />
+                     <button class="ml-3 btn btn-primary d-flex"
+                        (click)="search()">
+                        <i class='fa fa-search mr-2 mt-1'></i>
+                        поиск
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

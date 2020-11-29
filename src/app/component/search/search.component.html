@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row mt-5 mb-5">
+        <div class="col-md-12 text-center">
+            <h4 [hidden]="isLoadingData">Результаты поиска</h4>
+            <h4 [hidden]="!isLoadingData">Загрузка данных</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <div [hidden]="!isLoadingData"
+                class="fa fa-spinner fa-spin fa-4x">
+            </div>
+        </div>
+        <div *ngIf="usersList.length === 0 && !isLoadingData"
+            class="col-md-12 text-center">
+            <span class="alert alert-danger">
+                {{"данные по пользователю № " + "( " + getUserId() + " )" + " не найдены "}}
+            </span>
+        </div>
+        <div *ngIf="!isLoadingData && usersList.length > 0" class="col-md-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>№ пользователя</th>
+                        <th>Нименование</th>
+                        <th>Описание</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of usersList;">
+                        <td>{{user.id}}</td>
+                        <td>{{user.userId}}</td>
+                        <td>{{user.title}}</td>
+                        <td>{{user.body}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
